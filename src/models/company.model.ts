@@ -14,7 +14,7 @@ interface IEmergencyContact {
     
 }
 
-interface ICompanyDetails {
+export interface ICompanyDetails {
     companyName: string
     companyEmail: string
     companyPhone: string
@@ -75,10 +75,8 @@ const CompanySchema: Schema = new Schema({
     },
     email: { type: String, required: true },
     companyRefId: { type: String, required: true },
-    address: { type: AddressSchema, required: true },
-    personalDetails: {
-        emergencyContact: { type: EmergencyContactSchema, required: true },
-    },
+
+    shipments: { type: [String], default: [] }, // Added field
     companyDetails: { type: CompanyDetailsSchema, required: true },
 })
 
